@@ -10,6 +10,11 @@ require('./Models/db');
 const PORT = process.env.PORT || 8080;
 const OTPRouter = require('./Routes/OTPRouter');
 app.use('/otp', OTPRouter);
+const eventRouter = require('./Routes/EventRouter');
+const swapRouter = require('./Routes/SwapRouter');
+app.use('/api/events', eventRouter);
+app.use('/api', swapRouter);
+
 
 
 app.get('/ping', (req, res) => {
